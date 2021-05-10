@@ -37,6 +37,13 @@ public class EmployeeTest {
         developer.raiseSalary(1000.00);
         assertEquals(100999.99, developer.getSalary(), 0.001);
     }
+
+    @Test
+    public void cantRaiseDeveloperSalary() {
+        developer.raiseSalary(-1000.00);
+        assertEquals(99999.99, developer.getSalary(), 0.001);
+    }
+
     @Test
     public void canGetDeveloperPayBonus(){
         assertEquals(999.99, developer.payBonus(), 0.01);
@@ -55,5 +62,22 @@ public class EmployeeTest {
     @Test
     public void canGetDirectorBudget(){
         assertEquals(100000, director.getBudget(), 0.001);
+    }
+
+    @Test
+    public void canChangeDirectorName(){
+        director.setName("Malcolm");
+        assertEquals("Malcolm", director.getName());
+    }
+
+    @Test
+    public void cantChangeDirectorName(){
+        director.setName("");
+        assertEquals("Zsolt", director.getName());
+    }
+
+    @Test
+    public void canGetDirectorPayBonus(){
+        assertEquals(1999.99, director.payBonus(), 0.01);
     }
 }

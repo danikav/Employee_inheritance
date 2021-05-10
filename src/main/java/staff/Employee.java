@@ -24,7 +24,9 @@ public abstract class Employee {
     }
 
     public void setName(String name) {
-        this.name = name;
+        if(name != null && !name.isEmpty()) {
+            this.name = name;
+        }
     }
 
     public void setNino(String nino) {
@@ -36,7 +38,9 @@ public abstract class Employee {
     }
 
     public void raiseSalary(double increment) {
-        this.salary += increment;
+        if (increment >= 0) {
+            this.salary += increment;
+        }
     }
 
     public double payBonus(){
